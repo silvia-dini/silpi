@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Silvia Dini Nuraini - Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: '#3498db',
+            secondary: '#d6eaf8',
+            accent: '#2874a6',
+            dark: '#333',
+            light: '#f5f9ff',
+            graytext: '#777'
+          },
+          fontFamily: {
+            display: ['Playfair Display', 'serif'],
+            sans: ['Montserrat', 'sans-serif']
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    .section-padding {
+      padding: 5rem 2rem;
+    }
+    .portfolio-item {
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .portfolio-item:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    }
+    .timeline-item:before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 3px;
+      height: 100%;
+      background: #3498db;
+    }
+    .mobile-menu {
+      transform: translateX(100%);
+      transition: transform 0.3s ease-in-out;
+    }
+    .mobile-menu.active {
+      transform: translateX(0);
+    }
+    .floating {
+      animation: floating 3s ease-in-out infinite;
+    }
+    @keyframes floating {
+      0% { transform: translateY(0px); }
+      50% { transform: translateY(-15px); }
+      100% { transform: translateY(0px); }
+    }
+  </style>
+</head>
+<body class="bg-light font-sans text-dark overflow-x-hidden">
+  <!-- Navbar -->
+  <header class="bg-white shadow fixed top-0 w-full z-50">
+    <div class="max-w-7xl mx-auto flex justify-between items-center px-6 py-4">
+      <h1 class="text-2xl font-display text-primary font-bold">Silvia</h1>
+      <nav class="hidden md:flex gap-8 font-medium">
+        <a href="#home" class="hover:text-primary transition">Home</a>
+        <a href="#about" class="hover:text-primary transition">Tentang Saya</a>
+        <a href="#skills" class="hover:text-primary transition">Keahlian</a>
+        <a href="#portfolio" class="hover:text-primary transition">Portfolio</a>
+        <a href="#experience" class="hover:text-primary transition">Pengalaman</a>
+        <a href="#contact" class="hover:text-primary transition">Kontak</a>
+      </nav>
+      <button id="mobile-menu-button" class="md:hidden text-primary text-2xl">
+        <i class="fas fa-bars"></i>
+      </button>
+    </div>
+    
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="mobile-menu md:hidden fixed top-16 right-0 w-64 h-full bg-white shadow-lg z-40">
+      <div class="flex flex-col py-8">
+        <a href="#home" class="px-6 py-3 hover:bg-secondary hover:text-primary">Home</a>
+        <a href="#about" class="px-6 py-3 hover:bg-secondary hover:text-primary">Tentang Saya</a>
+        <a href="#skills" class="px-6 py-3 hover:bg-secondary hover:text-primary">Keahlian</a>
+        <a href="#portfolio" class="px-6 py-3 hover:bg-secondary hover:text-primary">Portfolio</a>
+        <a href="#experience" class="px-6 py-3 hover:bg-secondary hover:text-primary">Pengalaman</a>
+        <a href="#contact" class="px-6 py-3 hover:bg-secondary hover:text-primary">Kontak</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section id="home" class="pt-32 pb-20 px-6 bg-gradient-to-br from-white to-secondary">
+    <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center gap-12">
+      <div class="md:w-1/2 space-y-6">
+        <h1 class="text-4xl md:text-5xl font-display text-primary font-bold leading-tight">Silvia Dini Nuraini</h1>
+        <h2 class="text-accent text-lg tracking-wide uppercase font-semibold">Lulusan Teknik Komputer dan Jaringan</h2>
+        <p class="text-graytext text-lg leading-relaxed">Saya adalah lulusan SMK jurusan TKJ dari SMK Global Mulia. Berpengalaman dalam praktek kerja lapangan sebagai operator produksi dengan keterampilan teknis dan kemampuan kerja tim yang baik.</p>
+        <div class="flex gap-4">
+          <a href="#portfolio" class="inline-block bg-primary text-white font-semibold px-6 py-3 rounded-full shadow hover:bg-transparent hover:text-primary hover:ring-2 hover:ring-primary transition">Lihat Portfolio</a>
+          <a href="#contact" class="inline-block bg-white text-primary font-semibold px-6 py-3 rounded-full shadow hover:bg-primary hover:text-white transition">Hubungi Saya</a>
+        </div>
+      </div>
+      <div class="md:w-1/2 flex justify-center">
+        <div class="relative">
+          <img src="cilpi.jpg" alt="Silvia Dini Nuraini" class="w-80 h-80 object-cover rounded-full border-8 border-white shadow-xl floating" />
+          <div class="absolute -bottom-4 -right-4 bg-white p-4 rounded-lg shadow-lg">
+            <p class="font-bold text-primary">Operator Produksi</p>
+            <p class="text-sm text-graytext">Pengalaman Praktek Kerja</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section id="about" class="section-padding bg-white">
+    <div class="max-w-7xl mx-auto">
+      <div class="text-center mb-16">
+        <h2 class="text-3xl font-display text-primary font-bold mb-4">Tentang Saya</h2>
+        <div class="h-1 w-20 bg-primary mx-auto"></div>
+      </div>
+      
+      <div class="flex flex-col md:flex-row gap-12 items-center">
+        <div class="md:w-2/5">
+          <img src="silpi.jpg" alt="Tentang Silvia" class="w-full rounded-xl shadow-lg">
+        </div>
+        <div class="md:w-3/5">
+          <h3 class="text-2xl font-display text-primary mb-4">Profil Saya</h3>
+          <p class="text-graytext mb-6 leading-relaxed">
+            Saya adalah lulusan SMK jurusan Teknik Komputer dan Jaringan dari SMK Global Mulia. Selama masa pendidikan, saya aktif mengikuti berbagai kegiatan praktikum dan mengembangkan keterampilan teknis di bidang jaringan komputer dan perangkat keras.
+          </p>
+          <p class="text-graytext mb-6 leading-relaxed">
+            Saya memiliki pengalaman dalam Praktek Kerja Lapangan sebagai Operator Produksi di PT. Teknologi Maju, di mana saya belajar bekerja dalam tim dan menerapkan disiplin kerja industri. Saya dikenal sebagai pribadi yang tekun, cepat belajar, dan mampu beradaptasi dengan lingkungan kerja baru.
+          </p>
+          <div class="grid grid-cols-2 gap-4">
+            <div>
+              <p class="font-semibold">Nama Lengkap:</p>
+              <p class="text-graytext">Silvia Dini Nuraini</p>
+            </div>
+            <div>
+              <p class="font-semibold">Pendidikan:</p>
+              <p class="text-graytext">SMK Teknik Komputer & Jaringan</p>
+            </div>
+            <div>
+              <p class="font-semibold">Email:</p>
+              <p class="text-graytext">silvia.dini@example.com</p>
+            </div>
+            <div>
+              <p class="font-semibold">Lokasi:</p>
+              <p class="text-graytext">Jakarta, Indonesia</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Skills Section -->
+  <section id="skills" class="section-padding bg-secondary">
+    <div class="max-w-7xl mx-auto">
+      <div class="text-center mb-16">
+        <h2 class="text-3xl font-display text-primary font-bold mb-4">Keahlian Saya</h2>
+        <div class="h-1 w-20 bg-primary mx-auto"></div>
+      </div>
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div class="bg-white p-6 rounded-xl shadow-md">
+          <h3 class="text-xl font-semibold mb-4 text-primary">Teknis</h3>
+          <div class="space-y-4">
+            <div>
+              <div class="flex justify-between mb-1">
+                <span>Instalasi Jaringan</span>
+                <span>85%</span>
+              </div>
+              <div class="h-2 bg-gray-200 rounded-full">
+                <div class="h-2 bg-primary rounded-full" style="width:85%"></div>
+              </div>
+            </div>
+            <div>
+              <div class="flex justify-between mb-1">
+                <span>Perawatan Hardware</span>
+                <span>90%</span>
+              </div>
+              <div class="h-2 bg-gray-200 rounded-full">
+                <div class="h-2 bg-primary rounded-full" style="width:90%"></div>
+              </div>
+            </div>
+            <div>
+              <div class="flex justify-between mb-1">
+                <span>Konfigurasi Router</span>
+                <span>75%</span>
+              </div>
+              <div class="h-2 bg-gray-200 rounded-full">
+                <div class="h-2 bg-primary rounded-full" style="width:75%"></div>
+              </div>
+            </div>
+            <div>
+              <div class="flex justify-between mb-1">
+                <span>Troubleshooting</span>
+                <span>80%</span>
+              </div>
+              <div class="h-2 bg-gray-200 rounded-full">
+                <div class="h-2 bg-primary rounded-full" style="width:80%"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="bg-white p-6 rounded-xl shadow-md">
+          <h3 class="text-xl font-semibold mb-4 text-primary">Profesional</h3>
+          <div class="space-y-4">
+            <div>
+              <div class="flex justify-between mb-1">
+                <span>Kerja Tim</span>
+                <span>95%</span>
+              </div>
+              <div class="h-2 bg-gray-200 rounded-full">
+                <div class="h-2 bg-primary rounded-full" style="width:95%"></div>
+              </div>
+            </div>
+            <div>
+              <div class="flex justify-between mb-1">
+                <span>Komunikasi</span>
+                <span>85%</span>
+              </div>
+              <div class="h-2 bg-gray-200 rounded-full">
+                <div class="h-2 bg-primary rounded-full" style="width:85%"></div>
+              </div>
+            </div>
+            <div>
+              <div class="flex justify-between mb-1">
+                <span>Manajemen Waktu</span>
+                <span>90%</span>
+              </div>
+              <div class="h-2 bg-gray-200 rounded-full">
+                <div class="h-2 bg-primary rounded-full" style="width:90%"></div>
+              </div>
+            </div>
+            <div>
+              <div class="flex justify-between mb-1">
+                <span>Pemecahan Masalah</span>
+                <span>85%</span>
+              </div>
+              <div class="h-2 bg-gray-200 rounded-full">
+                <div class="h-2 bg-primary rounded-full" style="width:85%"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Portfolio Section -->
+  <section id="portfolio" class="section-padding bg-white">
+    <div class="max-w-7xl mx-auto">
+      <div class="text-center mb-16">
+        <h2 class="text-3xl font-display text-primary font-bold mb-4">Portfolio Saya</h2>
+        <div class="h-1 w-20 bg-primary mx-auto"></div>
+        <p class="text-graytext max-w-2xl mx-auto mt-4">Berikut adalah beberapa proyek dan pencapaian saya selama pendidikan dan pelatihan</p>
+      </div>
+      
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div class="portfolio-item bg-white rounded-xl shadow-md overflow-hidden">
+          <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&h=400&q=80" alt="Proyek Jaringan" class="w-full h-48 object-cover">
+          <div class="p-6">
+            <h3 class="text-xl font-semibold mb-2 text-primary">Instalasi Jaringan Sekolah</h3>
+            <p class="text-graytext mb-4">Proyek instalasi jaringan komputer untuk laboratorium sekolah dengan 30 unit komputer.</p>
+            <div class="flex flex-wrap gap-2">
+              <span class="bg-secondary text-primary px-3 py-1 rounded-full text-sm">Networking</span>
+              <span class="bg-secondary text-primary px-3 py-1 rounded-full text-sm">Cabling</span>
+              <span class="bg-secondary text-primary px-3 py-1 rounded-full text-sm">Configuration</span>
+            </div>
+          </div>
+        </div>
+        
+        <div class="portfolio-item bg-white rounded-xl shadow-md overflow-hidden">
+          <img src="https://images.unsplash.com/photo-1581094794329-16d62e1bfb9f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&h=400&q=80" alt="Perbaikan Hardware" class="w-full h-48 object-cover">
+          <div class="p-6">
+            <h3 class="text-xl font-semibold mb-2 text-primary">Perbaikan Komputer</h3>
+            <p class="text-graytext mb-4">Program perbaikan dan perawatan komputer untuk masyarakat sekitar sekolah.</p>
+            <div class="flex flex-wrap gap-2">
+              <span class="bg-secondary text-primary px-3 py-1 rounded-full text-sm">Hardware</span>
+              <span class="bg-secondary text-primary px-3 py-1 rounded-full text-sm">Troubleshooting</span>
+              <span class="bg-secondary text-primary px-3 py-1 rounded-full text-sm">Maintenance</span>
+            </div>
+          </div>
+        </div>
+        
+        <div class="portfolio-item bg-white rounded-xl shadow-md overflow-hidden">
+          <img src="https://images.unsplash.com/photo-1558346490-a72e53ae2d4f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&h=400&q=80" alt="Server Setup" class="w-full h-48 object-cover">
+          <div class="p-6">
+            <h3 class="text-xl font-semibold mb-2 text-primary">Setup Server Sekolah</h3>
+            <p class="text-graytext mb-4">Membantu setup server lokal untuk kebutuhan administrasi sekolah.</p>
+            <div class="flex flex-wrap gap-2">
+              <span class="bg-secondary text-primary px-3 py-1 rounded-full text-sm">Server</span>
+              <span class="bg-secondary text-primary px-3 py-1 rounded-full text-sm">Linux</span>
+              <span class="bg-secondary text-primary px-3 py-1 rounded-full text-sm">Administration</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Experience Section -->
+  <section id="experience" class="section-padding bg-secondary">
+    <div class="max-w-7xl mx-auto">
+      <div class="text-center mb-16">
+        <h2 class="text-3xl font-display text-primary font-bold mb-4">Pengalaman</h2>
+        <div class="h-1 w-20 bg-primary mx-auto"></div>
+        <p class="text-graytext max-w-2xl mx-auto mt-4">Riwayat pendidikan dan pengalaman kerja saya</p>
+      </div>
+      
+      <div class="relative">
+        <!-- Timeline -->
+        <div class="space-y-12 pl-8 border-l-2 border-primary">
+          <div class="relative timeline-item pl-8">
+            <div class="absolute -left-4 top-0 w-8 h-8 rounded-full bg-primary border-4 border-white"></div>
+            <div class="bg-white p-6 rounded-xl shadow-md">
+              <div class="flex justify-between flex-wrap">
+                <h3 class="text-xl font-semibold text-primary">Operator Produksi</h3>
+                <span class="text-accent font-medium">Jan 2022 - Jun 2022</span>
+              </div>
+              <p class="text-graytext font-semibold mb-2">PT. Teknologi Maju</p>
+              <p class="text-graytext">
+                Melakukan pengawasan dan operasi mesin produksi, memastikan kualitas produk, dan bekerja dalam tim untuk mencapai target produksi harian.
+              </p>
+            </div>
+          </div>
+          
+          <div class="relative timeline-item pl-8">
+            <div class="absolute -left-4 top-0 w-8 h-8 rounded-full bg-primary border-4 border-white"></div>
+            <div class="bg-white p-6 rounded-xl shadow-md">
+              <div class="flex justify-between flex-wrap">
+                <h3 class="text-xl font-semibold text-primary">Praktek Kerja Lapangan</h3>
+                <span class="text-accent font-medium">Jul 2021 - Des 2021</span>
+              </div>
+              <p class="text-graytext font-semibold mb-2">PT. Solusi Jaringan</p>
+              <p class="text-graytext">
+                Membantu instalasi jaringan komputer, melakukan perawatan hardware, dan memberikan dukungan teknis kepada pengguna.
+              </p>
+            </div>
+          </div>
+          
+          <div class="relative timeline-item pl-8">
+            <div class="absolute -left-4 top-0 w-8 h-8 rounded-full bg-primary border-4 border-white"></div>
+            <div class="bg-white p-6 rounded-xl shadow-md">
+              <div class="flex justify-between flex-wrap">
+                <h3 class="text-xl font-semibold text-primary">SMK Global Mulia</h3>
+                <span class="text-accent font-medium">2019 - 2022</span>
+              </div>
+              <p class="text-graytext font-semibold mb-2">Jurusan Teknik Komputer dan Jaringan</p>
+              <p class="text-graytext">
+                Mempelajari instalasi jaringan komputer, perawatan hardware, konfigurasi router, dan dasar-dasar server.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="section-padding bg-white">
+    <div class="max-w-7xl mx-auto">
+      <div class="text-center mb-16">
+        <h2 class="text-3xl font-display text-primary font-bold mb-4">Hubungi Saya</h2>
+        <div class="h-1 w-20 bg-primary mx-auto"></div>
+        <p class="text-graytext max-w-2xl mx-auto mt-4">Saya terbuka untuk peluang kerja dan kolaborasi. Silakan hubungi saya melalui form berikut</p>
+      </div>
+      
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+        <div>
+          <form class="space-y-6">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div>
+                <label for="name" class="block text-graytext mb-2">Nama Lengkap</label>
+                <input type="text" id="name" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent" placeholder="Nama Anda">
+              </div>
+              <div>
+                <label for="email" class="block text-graytext mb-2">Email</label>
+                <input type="email" id="email" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent" placeholder="email@example.com">
+              </div>
+            </div>
+            <div>
+              <label for="subject" class="block text-graytext mb-2">Subjek</label>
+              <input type="text" id="subject" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent" placeholder="Subjek pesan">
+            </div>
+            <div>
+              <label for="message" class="block text-graytext mb-2">Pesan</label>
+              <textarea id="message" rows="6" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent" placeholder="Tulis pesan Anda..."></textarea>
+            </div>
+            <button type="submit" class="bg-primary text-white font-semibold px-6 py-3 rounded-lg shadow hover:bg-accent transition">Kirim Pesan</button>
+          </form>
+        </div>
+        
+        <div>
+          <div class="bg-secondary rounded-xl p-8 h-full">
+            <h3 class="text-xl font-semibold mb-6 text-primary">Informasi Kontak</h3>
+            <div class="space-y-6">
+              <div class="flex items-start">
+                <div class="bg-white p-3 rounded-full mr-4">
+                  <i class="fas fa-map-marker-alt text-primary text-xl"></i>
+                </div>
+                <div>
+                  <h4 class="font-semibold mb-1">Lokasi</h4>
+                  <p class="text-graytext">Jakarta, Indonesia</p>
+                </div>
+              </div>
+              <div class="flex items-start">
+                <div class="bg-white p-3 rounded-full mr-4">
+                  <i class="fas fa-envelope text-primary text-xl"></i>
+                </div>
+                <div>
+                  <h4 class="font-semibold mb-1">Email</h4>
+                  <p class="text-graytext">silvia.dini@example.com</p>
+                </div>
+              </div>
+              <div class="flex items-start">
+                <div class="bg-white p-3 rounded-full mr-4">
+                  <i class="fas fa-phone text-primary text-xl"></i>
+                </div>
+                <div>
+                  <h4 class="font-semibold mb-1">Telepon</h4>
+                  <p class="text-graytext">+62 812 3456 7890</p>
+                </div>
+              </div>
+            </div>
+            
+            <div class="mt-12">
+              <h4 class="font-semibold mb-4 text-primary">Ikuti Saya</h4>
+              <div class="flex gap-4">
+                <a href="#" class="bg-white text-primary w-12 h-12 rounded-full flex items-center justify-center hover:bg-primary hover:text-white transition">
+                  <i class="fab fa-linkedin-in text-xl"></i>
+                </a>
+                <a href="#" class="bg-white text-primary w-12 h-12 rounded-full flex items-center justify-center hover:bg-primary hover:text-white transition">
+                  <i class="fab fa-instagram text-xl"></i>
+                </a>
+                <a href="#" class="bg-white text-primary w-12 h-12 rounded-full flex items-center justify-center hover:bg-primary hover:text-white transition">
+                  <i class="fab fa-facebook-f text-xl"></i>
+                </a>
+                <a href="#" class="bg-white text-primary w-12 h-12 rounded-full flex items-center justify-center hover:bg-primary hover:text-white transition">
+                  <i class="fab fa-twitter text-xl"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-primary text-white py-8">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="flex flex-col md:flex-row justify-between items-center">
+        <div class="mb-4 md:mb-0">
+          <h3 class="text-2xl font-display font-bold">Silvia Dini Nuraini</h3>
+          <p class="text-secondary">Lulusan Teknik Komputer dan Jaringan</p>
+        </div>
+        <div>
+          <p class="text-secondary">&copy; 2023 Portfolio Silvia. Hak Cipta Dilindungi.</p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Mobile menu toggle
+    const mobileMenuButton = document.getElementById('mobile-menu-button');
+    const mobileMenu = document.getElementById('mobile-menu');
+    
+    mobileMenuButton.addEventListener('click', () => {
+      mobileMenu.classList.toggle('active');
+    });
+    
+    // Close mobile menu when clicking a link
+    const mobileLinks = document.querySelectorAll('#mobile-menu a');
+    mobileLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        mobileMenu.classList.remove('active');
+      });
+    });
+    
+    // Smooth scrolling for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          window.scrollTo({
+            top: target.offsetTop - 80,
+            behavior: 'smooth'
+          });
+        }
+      });
+    });
+  </script>
+</body>
+</html>
